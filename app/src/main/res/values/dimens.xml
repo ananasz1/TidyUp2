@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_bottom">8dp</dimen>
+    <dimen name="button_padding_left">16dp</dimen>
+    <dimen name="button_padding_right">8dp</dimen>
+    <dimen name="button_side">26dp</dimen>
+    <dimen name="counter_text">26dp</dimen>
+    <dimen name="reset_button_padding">8dp</dimen>
+    <dimen name="score_margin">12dp</dimen>
+    <dimen name="score_size">52sp</dimen>
+    <dimen name="text_kid_padding">16dp</dimen>
+    <dimen name="text_kid_size">30sp</dimen>
+</resources>
