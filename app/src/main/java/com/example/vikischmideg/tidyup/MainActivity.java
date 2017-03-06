@@ -28,7 +28,14 @@ public class MainActivity extends AppCompatActivity {
     int BookNumberOfToys = 10;
     int BookQuantityOfToys = 0;
 
-
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    Button button5;
+    Button button6;
+    Button button7;
+    Button button8;
 
     TextView displayKid1;
     TextView displayKid2;
@@ -37,16 +44,12 @@ public class MainActivity extends AppCompatActivity {
     TextView displayCar;
     TextView displayBook;
 
-
-
     static final String STATE_KID1_SCORE = "scoreKid1";
     static final String STATE_KID2_SCORE = "scoreKid2";
     static final String STATE_DOLL = "quantityOfDoll";
     static final String STATE_PLUSH = "quantityOfplush";
     static final String STATE_CAR = "quantityOfCar";
     static final String STATE_BOOK = "quantityOfBook";
-
-
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -58,33 +61,6 @@ public class MainActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private com.google.android.gms.common.api.GoogleApiClient client2;
-
-
-    /**
-     * Set to save and restore activity state step by step. It doesn't allow to the app to forget the values when rotating
-     */
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putInt(STATE_KID1_SCORE, scoreKid1);
-        savedInstanceState.putInt(STATE_KID2_SCORE, scoreKid2);
-        savedInstanceState.putInt(STATE_DOLL, DollQuantityOfToys);
-        savedInstanceState.putInt(STATE_PLUSH, PlushQuantityOfToys);
-        savedInstanceState.putInt(STATE_CAR, CarQuantityOfToys);
-        savedInstanceState.putInt(STATE_BOOK, BookQuantityOfToys);
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        scoreKid1 = savedInstanceState.getInt(STATE_KID1_SCORE);
-        scoreKid2 = savedInstanceState.getInt(STATE_KID2_SCORE);
-        DollQuantityOfToys = savedInstanceState.getInt(STATE_DOLL);
-        PlushQuantityOfToys = savedInstanceState.getInt(STATE_PLUSH);
-        CarQuantityOfToys = savedInstanceState.getInt(STATE_CAR);
-        BookQuantityOfToys = savedInstanceState.getInt(STATE_BOOK);
-        redisplay();
-    }
 
 
     @Override
@@ -100,6 +76,15 @@ public class MainActivity extends AppCompatActivity {
         displayCar = (TextView) findViewById(R.id.carQuantity);
         displayBook = (TextView) findViewById(R.id.bookQuantity);
 
+        button1 = (Button) findViewById(R.id.fourKid1);
+        button2 = (Button) findViewById(R.id.threeKid1);
+        button3 = (Button) findViewById(R.id.twoKid1);
+        button4 = (Button) findViewById(R.id.oneKid1);
+        button5 = (Button) findViewById(R.id.fourKid2);
+        button6 = (Button) findViewById(R.id.threeKid2);
+        button7 = (Button) findViewById(R.id.twoKid2);
+        button8 = (Button) findViewById(R.id.oneKid2);
+
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -110,6 +95,39 @@ public class MainActivity extends AppCompatActivity {
         client2 = new com.google.android.gms.common.api.GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
     }
+
+
+    /**
+     * Set to save and restore activity state step by step. It doesn't allow to the app to forget the values when rotating
+     */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(STATE_KID1_SCORE, scoreKid1);
+        savedInstanceState.putInt(STATE_KID2_SCORE, scoreKid2);
+        savedInstanceState.putInt(STATE_DOLL, DollQuantityOfToys);
+        savedInstanceState.putInt(STATE_PLUSH, PlushQuantityOfToys);
+        savedInstanceState.putInt(STATE_CAR, CarQuantityOfToys);
+        savedInstanceState.putInt(STATE_BOOK, BookQuantityOfToys);
+
+        savedInstanceState.putBoolean("state_button1", button1.isEnabled());
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scoreKid1 = savedInstanceState.getInt(STATE_KID1_SCORE);
+        scoreKid2 = savedInstanceState.getInt(STATE_KID2_SCORE);
+        DollQuantityOfToys = savedInstanceState.getInt(STATE_DOLL);
+        PlushQuantityOfToys = savedInstanceState.getInt(STATE_PLUSH);
+        CarQuantityOfToys = savedInstanceState.getInt(STATE_CAR);
+        BookQuantityOfToys = savedInstanceState.getInt(STATE_BOOK);
+        Boolean enabled = savedInstanceState.getBoolean("state_button1");
+        button1.setEnabled(enabled);
+
+        redisplay();
+    }
+
 
 
     /**
@@ -134,19 +152,18 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addFourForKid1(View view) {
-        Button btn = (Button) findViewById(R.id.fourKid1);
-        Button btn2 = (Button) findViewById(R.id.fourKid2);
 
         if (DollQuantityOfToys < DollNumberOfToys) {
             DollQuantityOfToys = DollQuantityOfToys + 1;
             K1PushButton(4);
+
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button1.setEnabled(false);
+            button1.setClickable(false);
+            button1.setBackgroundResource(R.drawable.shape_button_inactive);
+            button5.setEnabled(false);
+            button5.setClickable(false);
+            button5.setBackgroundResource(R.drawable.shape_button_inactive);
 
         }
 
@@ -160,19 +177,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 1 by 3 points
      */
     public void addThreeForKid1(View view) {
-        Button btn = (Button) findViewById(R.id.threeKid1);
-        Button btn2 = (Button) findViewById(R.id.threeKid2);
 
         if (PlushQuantityOfToys < PlushNumberOfToys) {
             PlushQuantityOfToys = PlushQuantityOfToys + 1;
             K1PushButton(3);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button2.setEnabled(false);
+            button2.setClickable(false);
+            button2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button6.setEnabled(false);
+            button6.setClickable(false);
+            button6.setBackgroundResource(R.drawable.shape_button_inactive);
         }
 
         //**display the quantity of toys the player has from one type / the maximum*/
@@ -184,19 +199,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 1 by 2 points
      */
     public void addTwoForKid1(View view) {
-        Button btn = (Button) findViewById(R.id.twoKid1);
-        Button btn2 = (Button) findViewById(R.id.twoKid2);
 
         if (CarQuantityOfToys < CarNumberOfToys) {
             CarQuantityOfToys = CarQuantityOfToys + 1;
             K1PushButton(2);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button3.setEnabled(false);
+            button3.setClickable(false);
+            button3.setBackgroundResource(R.drawable.shape_button_inactive);
+            button7.setEnabled(false);
+            button7.setClickable(false);
+            button7.setBackgroundResource(R.drawable.shape_button_inactive);
         }
 
 
@@ -210,19 +223,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 1 by 1 points
      */
     public void addOneForKid1(View view) {
-        Button btn = (Button) findViewById(R.id.oneKid1);
-        Button btn2 = (Button) findViewById(R.id.oneKid2);
 
         if (BookQuantityOfToys < BookNumberOfToys) {
             BookQuantityOfToys = BookQuantityOfToys + 1;
             K1PushButton(1);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button4.setEnabled(false);
+            button4.setClickable(false);
+            button4.setBackgroundResource(R.drawable.shape_button_inactive);
+            button8.setEnabled(false);
+            button8.setClickable(false);
+            button8.setBackgroundResource(R.drawable.shape_button_inactive);
         }
         //**display the quantity of toys the player has from one type / the maximum quantity*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
@@ -242,19 +253,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 2 by 4 points
      */
     public void addFourForKid2(View view) {
-        Button btn = (Button) findViewById(R.id.fourKid2);
-        Button btn2 = (Button) findViewById(R.id.fourKid1);
 
         if (DollQuantityOfToys < DollNumberOfToys) {
             DollQuantityOfToys = DollQuantityOfToys + 1;
             K2PushButton(4);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button1.setEnabled(false);
+            button1.setClickable(false);
+            button1.setBackgroundResource(R.drawable.shape_button_inactive);
+            button5.setEnabled(false);
+            button5.setClickable(false);
+            button5.setBackgroundResource(R.drawable.shape_button_inactive);
 
         }
         //**display the quantity of toys the player has from one type / the maximum*/
@@ -266,19 +275,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 2 by 3 points
      */
     public void addThreeForKid2(View view) {
-        Button btn = (Button) findViewById(R.id.threeKid2);
-        Button btn2 = (Button) findViewById(R.id.threeKid1);
 
         if (PlushQuantityOfToys < PlushNumberOfToys) {
             PlushQuantityOfToys = PlushQuantityOfToys + 1;
             K2PushButton(3);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button2.setEnabled(false);
+            button2.setClickable(false);
+            button2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button6.setEnabled(false);
+            button6.setClickable(false);
+            button6.setBackgroundResource(R.drawable.shape_button_inactive);
 
         }
         //**display the quantity of toys the player has from one type / the maximum*/
@@ -290,19 +297,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 2 by 2 points
      */
     public void addTwoForKid2(View view) {
-        Button btn = (Button) findViewById(R.id.twoKid2);
-        Button btn2 = (Button) findViewById(R.id.twoKid1);
 
         if (CarQuantityOfToys < CarNumberOfToys) {
             CarQuantityOfToys = CarQuantityOfToys + 1;
             K2PushButton(2);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button3.setEnabled(false);
+            button3.setClickable(false);
+            button3.setBackgroundResource(R.drawable.shape_button_inactive);
+            button7.setEnabled(false);
+            button7.setClickable(false);
+            button7.setBackgroundResource(R.drawable.shape_button_inactive);
         }
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.carQuantity);
@@ -313,19 +318,17 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Kid 2 by 1 points
      */
     public void addOneForKid2(View view) {
-        Button btn = (Button) findViewById(R.id.oneKid2);
-        Button btn2 = (Button) findViewById(R.id.oneKid1);
 
         if (BookQuantityOfToys < BookNumberOfToys) {
             BookQuantityOfToys = BookQuantityOfToys + 1;
             K2PushButton(1);
         } else {
-            btn.setEnabled(false);
-            btn.setClickable(false);
-            btn.setBackgroundResource(R.drawable.shape_button_inactive);
-            btn2.setEnabled(false);
-            btn2.setClickable(false);
-            btn2.setBackgroundResource(R.drawable.shape_button_inactive);
+            button4.setEnabled(false);
+            button4.setClickable(false);
+            button4.setBackgroundResource(R.drawable.shape_button_inactive);
+            button8.setEnabled(false);
+            button8.setClickable(false);
+            button8.setBackgroundResource(R.drawable.shape_button_inactive);
         }
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
@@ -403,7 +406,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Display the quantity after onRestore
      */
-    public void redisplay() {
+    public Button redisplay() {
         displayKid1.setText(String.valueOf(scoreKid1));
         displayKid2.setText(String.valueOf(scoreKid2));
         displayDoll.setText(String.valueOf(DollQuantityOfToys + " / " + DollNumberOfToys));
@@ -413,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        return null;
     }
 
 
@@ -459,4 +463,6 @@ public class MainActivity extends AppCompatActivity {
                 .setActionStatus(Action.STATUS_TYPE_COMPLETED)
                 .build();
     }
+
+
 }
