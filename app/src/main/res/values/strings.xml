@@ -63,6 +63,7 @@
     <string name="abc_font_family_subhead_material">sans-serif</string>
     <string name="abc_font_family_title_material">sans-serif-medium</string>
     <string name="app_name">Tidy Up!</string>
+    <string name="web_tips">http://www.parents.com/parenting/better-parenting/secrets-to-cleaning-with-kids/</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
 </resources>

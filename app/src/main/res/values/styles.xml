@@ -41,7 +41,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:background">@drawable/shape_button_reset</item>
         <item name="android:padding">@dimen/reset_button_padding</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_marginLeft">@dimen/button_side</item>
         <item name="android:layout_marginRight">@dimen/button_side</item>
