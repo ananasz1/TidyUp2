@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private com.google.android.gms.common.api.GoogleApiClient client2;
 
+
+   //settings of the button states for different methods
     public void inactiveButton(Button button) {
         button.setEnabled(false);
         button.setClickable(false);
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //clear focus from EditText
         editName1 = (EditText) findViewById(R.id.name1);
         editName1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         displayKid1 = (TextView) findViewById(R.id.kid_1_score);
         displayKid2 = (TextView) findViewById(R.id.kid_2_score);
         displayDoll = (TextView) findViewById(R.id.dollQuantity);
@@ -236,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button5);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum */
+        //**display the quantity of toys left from one type / the maximum */
         TextView txt = (TextView) findViewById(R.id.dollQuantity);
         txt.setText(DollQuantityOfToys + " / " + DollNumberOfToys);
 
@@ -256,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button6);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum*/
+        //**display the quantity of toys left from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.plushQuantity);
         txt.setText(PlushQuantityOfToys + " / " + PlushNumberOfToys);
     }
@@ -276,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        //**display the quantity of toys the player has from one type / the maximum quantity*/
+        //**display the quantity of toys left from one type / the maximum quantity*/
         TextView txt = (TextView) findViewById(R.id.carQuantity);
         txt.setText(CarQuantityOfToys + " / " + CarNumberOfToys);
 
@@ -295,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button4);
             inactiveButton(button8);
         }
-        //**display the quantity of toys the player has from one type / the maximum quantity*/
+        //**display the quantity of toys left from one type / the maximum quantity*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
         txt.setText(BookQuantityOfToys + " / " + BookNumberOfToys);
 
@@ -323,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button5);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum*/
+        //**display the quantity of toys left from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.dollQuantity);
         txt.setText(DollQuantityOfToys + " / " + DollNumberOfToys);
     }
@@ -342,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button6);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum*/
+        //**display the quantity of toys left from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.plushQuantity);
         txt.setText(PlushQuantityOfToys + " / " + PlushNumberOfToys);
     }
@@ -361,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button7);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum*/
+        //**display the quantity of toys left from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.carQuantity);
         txt.setText(CarQuantityOfToys + " / " + CarNumberOfToys);
     }
@@ -380,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
             inactiveButton(button8);
         }
 
-        //**display the quantity of toys the player has from one type / the maximum*/
+        //**display the quantity of toys left from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
         txt.setText(BookQuantityOfToys + " / " + BookNumberOfToys);
     }
@@ -399,7 +403,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Link to useful links for parents
+     * Link to useful tips for parents
      */
     public void tips (View v){
         String url = getResources().getString(R.string.web_tips);
